@@ -42,12 +42,11 @@
 #   (this is all commented out as I use Mac Terminal Profiles)
 #   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 #   ------------------------------------------------------------
-   export CLICOLOR=1
-   export LSCOLORS=ExFxBxDxCxegedabagacad
+    export CLICOLOR=1
+    export LSCOLORS=ExFxBxDxCxegedabagacad
 
 #   Set environment variables for Golang
-    export GOPATH=$HOME/go
-    export GOBIN=$GOPATH/bin
+    export GOPATH=$HOME/Code/Go
     export PATH=$PATH:$GOBIN
 
 #   Export the LANG environment variable
@@ -261,7 +260,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
 
-alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
+    alias mountReadWrite='/sbin/mount -uw /'    # mountReadWrite:   For use when booted into single-user
 
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
