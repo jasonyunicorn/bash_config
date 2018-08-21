@@ -53,26 +53,22 @@
     export LC_CTYPE=C
     export LANG=C
 
-#   Set environment variables for Tomcat
-    export JAVA_HOME=$(/usr/libexec/java_home)
-    export CATALINA_HOME=/Library/Tomcat
+#   Support history search using up and down arrows
+    if [[ $- == *i* ]]
+    then
+        bind '"\e[A": history-search-backward'
+        bind '"\e[B": history-search-forward'
+    fi
 
-#   Set environment variables for Maven
-    export MAVEN_OPTS="-Xms256m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=128"
-
-#   The next line updates PATH for the Google Cloud SDK.
-    source '/usr/local/google-cloud-sdk/path.bash.inc'
-
-#   The next line enables bash completion for gcloud.
-    source '/usr/local/google-cloud-sdk/completion.bash.inc'
-
-#   Environment settings for virtualenvwrapper
-    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-    export WORKON_HOME=$HOME/VirtualEnvs
-    export PROJECT_HOME=$HOME/VirtualEnvs/Python
-    source /usr/local/bin/virtualenvwrapper.sh
-
+#   Setup direnv hook for bash
+    _direnv_hook() {
+        local previous_exit_status=$?;
+        eval "$("/usr/local/bin/direnv" export bash)";
+        return $previous_exit_status;
+    };
+    if ! [[ "$PROMPT_COMMAND" =~ _direnv_hook ]]; then
+        PROMPT_COMMAND="_direnv_hook;$PROMPT_COMMAND";
+    fi
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
