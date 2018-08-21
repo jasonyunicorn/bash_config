@@ -47,7 +47,7 @@
 
 #   Set environment variables for Golang
     export GOPATH=$HOME/Code/Go
-    export PATH=$PATH:$GOBIN
+    export PATH=$PATH:$GOPATH/bin
 
 #   Export the LANG environment variable
     export LC_CTYPE=C
