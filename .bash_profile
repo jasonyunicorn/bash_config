@@ -1,6 +1,6 @@
 #  ---------------------------------------------------------------------------
 #
-#  Description:  This file holds all my BASH configurations and aliases
+
 #
 #  Sections:
 #  1.   Environment Configuration
@@ -52,6 +52,9 @@
 #   Export the LANG environment variable
     export LC_CTYPE=C
     export LANG=C
+
+#   Export environment variables for JAVA
+    export JAVA_HOME=$(/usr/libexec/java_home)
 
 #   Support history search using up and down arrows
     if [[ $- == *i* ]]
